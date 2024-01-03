@@ -1,0 +1,179 @@
+<%@ page imp	ort="project.SleepCalculator" %>
+<%@ page import="project.CaloriesCalculator" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Health Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    // Use fetch to trigger the SleepAnalyticsServlet on page load
+function fetchSleepAnalytics() {
+    fetch('SleepAnalyticsServlet')
+        .then(response => response.text())
+        .then(data => {
+            // Optional: You can add logic to update the UI based on the response from the servlet
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+        function submitForm() {
+            var inputValue = document.getElementById("inputValue").value;
+
+            fetch('SaveToDatabaseServlet', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'inputValue=' + encodeURIComponent(inputValue),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if (data.recordAdded) {
+                    alert('Record added successfully!');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function redirectToAddRecordPage() {
+            window.location.href = 'addrecord.jsp';
+        }
+
+        // Function to fetch data and create the pie chart
+  function createMoodChart() {
+            fetch('MoodChartDataServlet') // Assuming you create a servlet to provide data
+                .then(response => response.json())
+                .then(data => {
+                    var ctx = document.getElementById('moodChart').getContext('2d');
+
+                    // Add title element with an ID
+                    var title = document.createElement('div');
+                    title.id = 'moodChartTitle';
+                    title.textContent = 'Mood Distribution'; // Add your desired title here
+                    document.querySelector('.piechart').appendChild(title);
+
+                    // Define a gradient for each color
+                    var gradient1 = ctx.createLinearGradient(0, 0, 0, 100);
+                    gradient1.addColorStop(0, '#58db58');
+                    gradient1.addColorStop(1, '#4cb04c');
+
+                    var gradient2 = ctx.createLinearGradient(0, 0, 0, 100);
+                    gradient2.addColorStop(0, '#db5858');
+                    gradient2.addColorStop(1, '#ba6363');
+
+                    var gradient3 = ctx.createLinearGradient(0, 0, 0, 100);
+                    gradient3.addColorStop(0, '#b0971e');
+                    gradient3.addColorStop(1, '#b8a448');
+
+                    new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: data.labels,
+                            datasets: [{
+                                data: data.values,
+                                backgroundColor: [gradient1, gradient2, gradient3], // Use gradients
+                                borderWidth: 0, // Remove border
+                                fontColor: 'white',
+                            }]
+                        },
+                        options: {
+                            legend: {
+                                display: false, // Hide the legend
+                            }
+                        },
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+
+// Call the function when the page loads
+window.onload = function() {
+    createMoodChart();
+    fetchSleepAnalytics();
+};
+
+    </script>
+</head>
+<body>
+    <br>
+    <header>
+        <h1>YOUR HEALTH DASHBOARD</h1>
+    </header>
+    <main>
+        <div>
+            <form class="container" onsubmit="submitForm(); return false;" method="post">
+                <input id="inputValue" name="inputValue" class="moodenter" type="text" placeholder="How are you feeling?" required>	
+                <button type="submit" class="tb">SUBMIT</button>
+            </form>
+        </div>
+<!-- New container for analytics -->
+<div class="container" style="margin-top:-20px">
+    <div class="analytics-container">
+        <div class="analytics">
+            <div class="piechart">
+                <canvas id="moodChart" width="400" height="200"></canvas>
+            </div>
+            <div class="graphs">
+                <!-- Example card -->
+                <div class="data-card">
+                    <h3>Data Card 1</h3>
+                    <!-- Add content here -->
+                </div>
+                <!-- Example card -->
+    <div class="data-card">
+        <div class="icon-container">
+            <!-- Use a sleep icon on the left -->
+            <img src="sleep_icon.png" alt="Sleep Icon" class="icon">
+        </div>
+        <div class="count-container">
+        <h3>This week, You slept</h3>
+        <p class="hours">
+            <% 
+                // Use Java code to get the calculated sleep hours
+                int totalHoursSlept = SleepCalculator.calculateSleepHoursForWeek();
+                out.print(totalHoursSlept + " hours");
+            %>
+        </p>
+        <div class="small-text">out of 60 hours</div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" style="width: <%= (totalHoursSlept / 60.0) * 100 %>%;"></div>
+        </div>
+        </div>
+    </div>                <!-- Example card -->
+                <div class="data-card">
+                    <h3>Total Calories This Month</h3>
+                    <p>
+                        <% 
+                            // Use Java code to get the calculated total calories
+                            int totalCalories = CaloriesCalculator.calculateTotalCalories();
+                            out.print(totalCalories + " calories");
+                        %>
+                    </p>
+                </div>
+            </div> <!-- Close the <div> for graphs here -->
+        </div>
+    </div>
+</div>
+        <!-- Container for buttons and others -->
+        <div class="container">
+            <button class="bm" onclick="redirectToAddRecordPage()">Add record</button>
+            <button class="bm">View History</button>
+            <button class="bm">Analytics</button>
+        </div>
+    </main>
+</body>
+</html>

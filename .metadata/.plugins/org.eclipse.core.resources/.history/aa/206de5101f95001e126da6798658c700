@@ -1,0 +1,62 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/EmotionServlet")
+public class EmotionServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String emotionValue = getEmotionValueFromDatabase();
+
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter out = response.getWriter();
+        out.write(emotionValue);
+        out.close();
+    }
+
+    private String getEmotionValueFromDatabase() {
+        String emotionValue = "Unknown";
+
+        // Replace these with your actual database credentials and query
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        String url = "jdbc:mysql://localhost:3306/project";
+        String username = "root";
+        String password = "password";
+
+        String query = "SELECT emotion FROM user_emotion WHERE user_id = ? AND MONTH(date) = MONTH(CURRENT_DATE())";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            try (Connection connection = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
+                    PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+                // Replace 'userId' with the actual user identifier from your system
+                preparedStatement.setInt(1, userId);
+
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if (resultSet.next()) {
+                        emotionValue = resultSet.getString("emotion");
+                    }
+                }
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            // Handle exceptions properly in a real-world scenario
+        }
+
+        return emotionValue;
+    }
+}

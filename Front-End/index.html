@@ -1,0 +1,187 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Health Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script>
+    // Use fetch to trigger the SleepAnalyticsServlet on page load
+    function fetchSleepAnalytics() {
+      fetch('SleepAnalyticsServlet')
+        .then(response => response.text())
+        .then(data => {
+          // Optional: You can add logic to update the UI based on the response from the servlet
+          console.log(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+    function submitForm() {
+      var inputValue = document.getElementById("inputValue").value;
+
+      fetch('SaveToDatabaseServlet', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'inputValue=' + encodeURIComponent(inputValue),
+      })
+        .then(response => response.json())
+        .then(data => {
+          alert(data.message);
+          if (data.recordAdded) {
+            alert('Record added successfully!');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+    function redirectToAddRecordPage() {
+      window.location.href = 'addrecord.jsp';
+    }
+
+    // Function to fetch data and create the pie chart
+    function createMoodChart() {
+      fetch('MoodChartDataServlet') // Assuming you create a servlet to provide data
+        .then(response => response.json())
+        .then(data => {
+          var ctx = document.getElementById('moodChart').getContext('2d');
+
+          // Add title element with an ID
+          var title = document.createElement('div');
+          title.id = 'moodChartTitle';
+          title.textContent = 'Mood Distribution'; // Add your desired title here
+          document.querySelector('.piechart').appendChild(title);
+
+          // Define a gradient for each color
+          var gradient1 = ctx.createLinearGradient(0, 0, 0, 100);
+          gradient1.addColorStop(0, '#58db58');
+          gradient1.addColorStop(1, '#4cb04c');
+
+          var gradient2 = ctx.createLinearGradient(0, 0, 0, 100);
+          gradient2.addColorStop(0, '#db5858');
+          gradient2.addColorStop(1, '#ba6363');
+
+          var gradient3 = ctx.createLinearGradient(0, 0, 0, 100);
+          gradient3.addColorStop(0, '#b0971e');
+          gradient3.addColorStop(1, '#b8a448');
+
+          new Chart(ctx, {
+            type: 'pie',
+            data: {
+              labels: data.labels,
+              datasets: [{
+                data: data.values,
+                backgroundColor: [gradient1, gradient2, gradient3], // Use gradients
+                borderWidth: 0, // Remove border
+                fontColor: 'white',
+              }]
+            },
+            options: {
+              legend: {
+                display: false, // Hide the legend
+              }
+            },
+          });
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+
+    // Call the function when the page loads
+    window.onload = function () {
+      createMoodChart();
+      fetchSleepAnalytics();
+    };
+
+  </script>
+
+</head>
+
+<body>
+
+  <div class="sidenav">
+    <a href="#" style="padding-bottom: 100px;padding-left: 10px;"><img style="width: 95%;filter: brightness(1);"
+        src="logo.png"></a>
+    <a class="active" href="index2.jsp"><img src="dashboard.png"></a>
+    <a href="add.jsp"><img src="add.png"></a>
+    <a href="anal.jsp"><img src="anal.png"></a>
+    <a href="info.jsp"><img src="info.png"></a>
+  </div>
+
+  <div class="main">
+    <h2 style="font-weight: 400;">Hi! This is <b>Vita+</b></h2>
+    <p style="font-weight: bold;font-style:italic;font-size: 20px;">How are you feeling right now? I am all ears!
+    </p>
+    <form class="container" onsubmit="submitForm(); return false;" method="post">
+      <input id="inputValue" name="inputValue" class="moodenter" type="text" required>
+      <button type="submit" class="subbtn">SUBMIT</button>
+    </form><br><br>
+    <div class="analytics_container">
+      <div class="pie">
+        <canvas id="moodChart" width="100%" height="100%"></canvas>
+      </div>
+      <div class="count">
+        <div class="counts">
+          <div class="card">
+            <img class="count-icon" src="sleep.png">
+            <p class="count-text">You've Slept</p><br>
+            <p class="count-count">
+              2
+            <p style="font-size:11px;margin-bottom:-15px">out 8 hours today.</p>
+            </p><br>
+            <div class="pbbg">
+              <div class="pb" style="width: 20%;max-width:100%;min-width:0%"></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="count-icon" src="food.png">
+            <p class="count-text">You've Eaten</p><br>
+            <p class="count-count">
+              2
+            <p style="font-size:11px;margin-bottom:-15px">out 1500 calories today.</p>
+            </p><br>
+            <div class="pbbg">
+              <div class="pb" style="width: 20%;max-width:100%"></div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="count-icon" src="food.png">
+            <p class="count-text">You got ill</p><br>
+            <p class="count-count">
+              2
+            <p style="font-size:11px;margin-bottom:-15px">in this month.</p>
+            </p><br>
+            <div class="pbbg">
+              <div class="pb" style="width: 20%;max-width:100%;min-width:0%"></div>
+            </div>
+          </div>
+        </div>
+          
+        <div class="health-meter">
+          <p class="count-text">Health Meter</p><br>
+          <p class="count-count" style="font-size:11px;margin-top:-20px">
+            2 </p>
+          </p>
+          <div class="pbbg" style="height: 10%;">
+            <div class="pb" style="width: 20%;max-width:100%;min-width:0%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

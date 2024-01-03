@@ -1,0 +1,59 @@
+package project;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/EmotionServlet")
+public class EmotionServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String emotionValue = getEmotionValueFromDatabase();
+
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter out = response.getWriter();
+        out.write(emotionValue);
+        out.close();
+    }
+
+    private String getEmotionValueFromDatabase() {
+        String emotionValue = "Unknown";
+
+        // Replace these with your actual database credentials and query
+        String url = "jdbc:mysql://localhost:3306/project";
+        String username = "root";
+        String password = "password";
+
+        String query = "SELECT entrytype, COUNT(*) as count FROM record WHERE MONTH(entrytime) = MONTH(CURRENT_DATE()) GROUP BY entrytype ORDER BY count DESC LIMIT 1";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            try (Connection connection = DriverManager.getConnection(url, username, password);
+                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+                    ResultSet resultSet = preparedStatement.executeQuery()) {
+
+                if (resultSet.next()) {
+                    emotionValue = resultSet.getString("entrytype");
+                }
+            }
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            // Handle exceptions properly in a real-world scenario
+        }
+
+        return emotionValue;
+    }
+}

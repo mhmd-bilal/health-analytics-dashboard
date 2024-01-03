@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="sidenav">
+    <a href="#" style="padding-bottom: 100px;padding-left: 10px;"><img style="width: 95%;filter: brightness(1);" src="logo.png"></a>
+    <a href="index.html"><img src="dashboard.png"></a>
+    <a  class="active" href="add.html"><img src="add.png"></a>
+    <a href="anal.html"><img src="anal.png"></a>
+    <a href="info.html"><img src="info.png"></a>
+  </div>
+
+  <div class="main" style="text-align: center;margin-top: 150px;">
+    <h2 style="font-weight: 400;">Add Record</h2>
+    <p style="font-weight: bold;font-style:italic;font-size: 20px;">Select the input type:</p>
+
+    <div class="choose">
+        <div class="choose-card">
+        <button class="choose-btn" onclick="showInputFields('food')"><img src="sleep-green.png"></button>
+    </div>
+        <div class="choose-card">
+        <button class="choose-btn" onclick="showInputFields('sleep')"><img src="food-green.png"></button>
+    </div>
+        <div class="choose-card">
+        <button class="choose-btn" onclick="showInputFields('illness')"><img src="food-green.png"></button>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

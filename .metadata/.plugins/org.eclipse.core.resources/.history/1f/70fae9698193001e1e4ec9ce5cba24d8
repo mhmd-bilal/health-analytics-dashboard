@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles2.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
+        // Function to fetch data and create the pie chart
+  function createMoodChart() {
+            fetch('MoodChartDataServlet') // Assuming you create a servlet to provide data
+                .then(response => response.json())
+                .then(data => {
+                    var ctx = document.getElementById('moodChart').getContext('2d');
+
+                    // Add title element with an ID
+                    var title = document.createElement('div');
+                    title.id = 'moodChartTitle';
+                    title.textContent = 'Mood Distribution'; // Add your desired title here
+                    document.querySelector('.piechart').appendChild(title);
+
+                    // Define a gradient for each color
+                    var gradient1 = ctx.createLinearGradient(0, 0, 0, 100);
+                    gradient1.addColorStop(0, '#58db58');
+                    gradient1.addColorStop(1, '#4cb04c');
+
+                    var gradient2 = ctx.createLinearGradient(0, 0, 0, 100);
+                    gradient2.addColorStop(0, '#db5858');
+                    gradient2.addColorStop(1, '#ba6363');
+
+                    var gradient3 = ctx.createLinearGradient(0, 0, 0, 100);
+                    gradient3.addColorStop(0, '#b0971e');
+                    gradient3.addColorStop(1, '#b8a448');
+
+                    new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: data.labels,
+                            datasets: [{
+                                data: data.values,
+                                backgroundColor: [gradient1, gradient2, gradient3], // Use gradients
+                                borderWidth: 0, // Remove border
+                                fontColor: 'white',
+                            }]
+                        },
+                        options: {
+                            legend: {
+                                display: false, // Hide the legend
+                            }
+                        },
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+
+
+// Call the function when the page loads
+window.onload = function() {
+    createMoodChart();
+};
+
+    </script>
+</head>
+<body>
+        <div class="analytics">
+            <div class="piechart">
+                <canvas id="moodChart" width="200" height="100"></canvas>
+            </div>
+        </div>
+</body>
+</html>

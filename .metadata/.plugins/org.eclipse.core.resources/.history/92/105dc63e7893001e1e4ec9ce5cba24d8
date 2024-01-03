@@ -1,0 +1,65 @@
+package project;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/SaveFoodEntryServlet")
+public class SaveFoodEntryServlet extends HttpServlet {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Map<String, Integer> foodCaloriesMap;
+
+    @Override
+    public void init() throws ServletException {
+        super.init();
+        // Initialize the foodCaloriesMap with food items and their corresponding calories
+        foodCaloriesMap = new HashMap<>();
+        // Add all your food items and calories here
+        foodCaloriesMap.put("artichoke", 60);
+        foodCaloriesMap.put("arugula", 1);
+        // ... add the rest of the food items
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String food = request.getParameter("food");
+        int calories = getCaloriesForFood(food);
+
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/project", "root", "password");
+             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO foodentry (food, calories) VALUES (?, ?)")) {
+
+            preparedStatement.setString(1, food);
+            preparedStatement.setInt(2, calories);
+
+            preparedStatement.executeUpdate();
+
+            response.getWriter().println("Food entry saved successfully!");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.getWriter().println("Error: " + e.getMessage());
+        }
+    }
+
+    private int getCaloriesForFood(String food) {
+        // Check if the food is present in the map
+        if (foodCaloriesMap.containsKey(food)) {
+            return foodCaloriesMap.get(food);
+        } else {
+            return -1; // Return -1 or handle this case as per your requirement
+        }
+    }
+}

@@ -1,0 +1,563 @@
+Food,Calories
+artichoke,60
+arugula,1
+asparagus,2
+aubergine,115
+beetroot,35
+bell pepper,15
+black olives,2
+broccoli,207
+brussels sprouts,8
+cabbage,227
+capsicum,12
+carrot,25
+cauliflower,3
+celery,6
+chard,9
+cherry tomato,20
+chicory,38
+chinese cabbage,134
+chives,1
+collard greens,12
+corn,562
+courgette,33
+creamed spinach,148
+cucumber,66
+eggplant,115
+endive,87
+fennel,73
+garlic,4
+gherkin,9
+gourd,108
+green beans,34
+green olives,2
+green onion,5
+horseradish,7
+kale,33
+kohlrabi,108
+kumara,112
+leek,54
+lettuce,90
+mushrooms,1
+mustard greens,15
+nori,1
+okra,4
+olives,2
+onion,34
+parsnips,128
+peas,79
+pepper,20
+potato,164
+pumpkin,51
+radishes,1
+red cabbage,7
+rutabaga,147
+shallots,18
+spinach,78
+squash,88
+sweet potato,112
+tomato,20
+turnip greens,34
+turnips,34
+wasabi,184
+winter squash,147
+zucchini,33
+acai,20
+apple,95
+applesauce,167
+apricot,17
+avocado,320
+banana,111
+blackberries,62
+blood oranges,70
+blueberries,84
+cantaloupe,23
+cherries,4
+clementine,35
+cranberries,46
+currants,63
+custard apple,136
+dates,20
+figs,37
+fruit salad,125
+grapes,104
+greengage,2
+guava,37
+jackfruit,143
+jujube,22
+kiwi,112
+lemon,17
+lime,20
+lychees,7
+mandarin oranges,47
+mango,202
+minneola,70
+mulberries,60
+nectarine,66
+olives,2
+orange,62
+papaya,215
+passion fruit,17
+peach,59
+pear,101
+persimmon,32
+physalis,2
+pineapple,453
+plantains,218
+plum,30
+pomegranate,234
+quince,52
+raisins,434
+rambutan,7
+raspberries,64
+rhubarb,11
+starfruit,28
+strawberries,49
+tamarind,5
+tangerine,47
+watermelon,86
+baby back ribs,360
+bacon and eggs,539
+baked beans,244
+bbq ribs,360
+beef stew,186
+biryani,484
+black pudding,101
+black rice,323
+blt,593
+brown rice,670
+burrito,326
+butter chicken,490
+california roll,33
+chicken caesar salad,392
+chicken fried steak,423
+chicken marsala,2209
+chicken parmesan,250
+chicken pot pie,673
+chicken tikka masala,195
+chili con carne,266
+chimichanga,418
+cobb salad,632
+collard greens,13
+corn dog,438
+corned beef hash,349
+cottage pie,523
+dal,304
+deviled eggs,62
+dim sum,37
+dosa,287
+enchiladas,323
+fajita,290
+fish and chips,585
+fried rice,662
+fried shrimp,75
+grilled cheese sandwich,392
+ham and cheese sandwich,352
+hummus,435
+jambalaya,250
+kebab,774
+lasagne,284
+mac and cheese,699
+macaroni and cheese,699
+mashed potatoes,174
+meat pie,290
+meatloaf,721
+naan,260
+orange chicken,420
+pad thai,375
+paella,200
+paratha,260
+pea soup,190
+peanut butter sandwich,200
+peking duck,401
+philly cheese steak,300
+pizza,272
+pork chop,295
+potato salad,136
+pulled pork sandwich,551
+ramen,380
+ravioli,134
+reuben sandwich,641
+roast beef,23
+roast dinner,240
+samosa,107
+sausage roll,361
+sausage rolls,101
+shepherds pie,159
+shrimp cocktail,130
+sloppy joe,101
+sloppy joes,397
+spaghetti bolognese,374
+spring roll,350
+spring rolls,350
+taco,213
+tandoori chicken,198
+yorkshire pudding,83
+amaranth,716
+barley,556
+barley groats,31
+brown rice,757
+buckwheat,583
+buckwheat groats,567
+corn waffles,110
+cornmeal,442
+cornstarch,488
+couscous,650
+cracker,35
+durum wheat semolina,119
+flaxseed,897
+freekeh,832
+gluten,104
+grissini,20
+kamut,627
+millet,484
+millet flour,521
+millet gruel,80
+oat bran,231
+pearl barley,553
+polenta,549
+prawn crackers,16
+pretzel sticks,46
+quinoa,626
+rusk,41
+rye bran,422
+sago,99
+savoury biscuits,139
+shortbread,95
+spelt,588
+spelt bran,283
+spelt semolina,601
+sunflower seeds,818
+tortilla,467
+tortilla chips,160
+wheat bran,125
+wheat germ,432
+wheat gluten,10
+wheat semolina,601
+wheat starch,386
+whole grain wheat,407
+wholegrain oat,300
+almond oil,123
+apricot kernel oil,124
+argan oil,125
+avocado oil,120
+babassu oil,124
+canola oil,124
+coconut oil,120
+corn oil,120
+cottonseed oil,123
+flaxseed oil,124
+grape seed oil,124
+hazelnut oil,124
+linseed oil,117
+menhaden oil,128
+mustard oil,124
+oat oil,124
+olive oil,120
+palm kernel oil,123
+palm oil,123
+peanut oil,120
+poppy seed oil,124
+pumpkin seed oil,123
+rice bran oil,124
+safflower oil,120
+salmon oil,128
+sesame oil,124
+shea oil,124
+soy oil,123
+sunflower oil,124
+tomato seed oil,124
+vegetable oil,120
+walnut oil,124
+wheat germ oil,130
+alphabet soup,62
+bean stew,335
+beef bouillon,7
+beef noodle soup,83
+beef soup,70
+bouillon,39
+broccoli cheese soup,264
+broccoli soup,206
+cabbage soup,69
+carrot ginger soup,95
+carrot soup,95
+chicken bouillon,10
+chicken broth,39
+chicken gumbo soup,56
+chicken noodle soup,62
+chicken stock,39
+chicken vegetable soup,77
+chicken with rice soup,58
+cream of asparagus soup,85
+cream of broccoli soup,140
+cream of celery soup,92
+cream of chicken soup,117
+cream of mushroom soup,97
+cream of onion soup,107
+cream of potato soup,73
+creamy chicken noodle soup,56
+french onion soup,56
+golden mushroom soup,161
+goulash,1887
+instant ramen,371
+lentil soup,139
+lobster bisque soup,248
+meatball soup,120
+minestrone,82
+mushroom soup,85
+noodle soup,83
+onion soup,56
+oxtail soup,68
+pea soup,190
+potato soup,192
+pumpkin soup,71
+ramen,371
+scotch broth,80
+succotash,221
+thai soup,147
+tomato rice soup,116
+tomato soup,74
+vegetable beef soup,76
+vegetable broth,12
+vegetable soup,67
+vegetable stock,12
+wedding soup,130
+baskin-robbins,170
+ben and jerry’s,210
+butter pecan ice cream,280
+carvel,449
+chocolate chip ice cream,155
+chocolate ice cream,156
+ciao bella,240
+coffee ice cream,170
+cold stone creamery,329
+cookie dough ice cream,130
+crunchie mcflurry,318
+dairy milk mcflurry,340
+dippin dots,381
+double rainbow,185
+drumsticks,360
+french vanilla ice cream,145
+friendly’s,140
+healthy choice,80
+hot fudge sundae,333
+ice cream sandwich,265
+ice cream sundae,253
+ice milk,164
+magnolia,166
+magnum,258
+magnum almond,271
+magnum double caramel,305
+magnum double chocolate,327
+magnum gold,290
+magnum white,255
+mcflurry,205
+mcflurry oreo,340
+mini milk,30
+mint chocolate chip ice cream,172
+rocky road ice cream,290
+schwan’s,177
+smarties mcflurry,400
+snickers ice cream,180
+soft serve,191
+solero,75
+strawberry ice cream,170
+strawberry sundae,281
+sundae,155
+turkey hill,190
+vanilla cone,230
+vanilla ice cream,145
+cannelloni,82
+capellini,198
+cappelletti,92
+cellophane noodles,491
+cheese tortellini,329
+dampfnudel,233
+dumpling dough,55
+durum wheat semolina,222
+egg noodles,146
+farfalle,200
+fettuccine,198
+fusilli,197
+glass noodles,108
+lasagne sheets,57
+linguine,200
+low carb pasta,158
+macaroni,422
+manicotti,200
+mostaccioli,103
+orecchiette,207
+orzo,200
+penne,197
+penne rigate,207
+pierogi,200
+ravioli,43
+rigatoni,198
+rotini,198
+shells,300
+shirataki noodles,10
+soy noodles,121
+spaetzle,206
+spaghetti,207
+spinach tortellini,320
+spirelli,206
+tagliatelle,207
+tortellini,329
+vermicelli,206
+whole grain noodles,194
+whole grain spaghetti,197
+ziti,197
+bbq chicken pizza,309
+bbq pizza,314
+beef pizza,714
+bianca pizza,460
+buffalo chicken pizza,600
+calabrese pizza,254
+calzone,841
+capricciosa pizza,192
+cheese pizza,168
+chicken pizza,309
+deep dish pizza,313
+dominos philly cheese steak pizza,356
+four cheese pizza,250
+goat cheese pizza,138
+grilled pizza,280
+hawaiian pizza,154
+margherita pizza,173
+mozzarella pizza,154
+mushroom pizza,611
+napoli pizza,248
+new york style pizza,174
+pepperoni pizza,181
+pizza dough,130
+pizza hut stuffed crust pizza,380
+pizza hut supreme pizza,305
+pizza rolls,35
+quattro formaggi pizza,330
+red pepper pizza,165
+salami pizza,181
+sausage pizza,177
+seafood pizza,186
+shrimp pizza,190
+sicilian pizza,321
+spinach feta pizza,150
+spinach pizza,145
+stuffed crust pizza,380
+tarte flamb�e,142
+thin crust pizza,157
+tuna pizza,318
+vegetable pizza,399
+vegetarian pizza,399
+veggie pizza,263
+white pizza,571
+acerola,1
+asian pear,75
+avocado,320
+banana,111
+breadfruit,99
+cantaloupe melon,23
+casaba melon,35
+cherimoya,176
+dragon fruit,120
+durian,885
+feijoa,23
+galia melon,30
+grapefruit,52
+guava,37
+honeydew,45
+jackfruit,143
+kiwi,112
+kumquat,13
+lychee,7
+mandarin oranges,48
+mango,202
+mangosteen,58
+maracuya,17
+maraschino cherries,8
+muskmelon,23
+noni,15
+passion fruit,17
+pineapple,453
+pink grapefruit,52
+plantain,218
+pomegranate,234
+pomelo,231
+prickly pear,8
+rambutan,7
+sapodilla,141
+soursop fruit,413
+star fruit,28
+tamarind,5
+watermelon,86
+arby’s grand turkey club,489
+arby’s reuben,641
+arby’s roast beef classic,360
+arby’s roast beef max,360
+bbq rib,142
+bean burrito,380
+big n’ tasty,517
+bratwurst,283
+burger king angry whopper,740
+burger king double whopper,894
+burger king double whopper with cheese,994
+burger king original chicken sandwich,659
+burger king premium alaskan fish sandwich,591
+burger king triple whopper,1471
+burger king whopper,672
+burger king whopper jr.,346
+burger king whopper with cheese,759
+cheeseburger,410
+chicken breast,116
+chicken fajita,326
+chicken mcnuggets,48
+chicken nuggets,59
+chicken pizziola,451
+chicken sandwich,410
+chicken teriyaki sandwich,367
+chicken wings,94
+chop suey,585
+curly fries,398
+double cheeseburger,414
+egg roll,200
+falafel,57
+filet-o-fish,400
+fish and chips,585
+fish sandwich,431
+french fries,222
+grilled chicken salad,268
+ham sandwich,352
+hamburger,279
+hot dog,312
+italian bmt,410
+lasagna,172
+mcdonald’s big mac,561
+mcdonald’s cheeseburger,300
+mcdonald’s chicken nuggets,48
+mcdonald’s double cheeseburger,437
+mcdonald’s filet-o-fish,391
+mcdonald’s mcchicken,359
+mcdonald’s mcdouble,403
+mcdonald’s mcmuffi egg,290
+mcdonald’s mcrib,451
+mcdonald’s mighty wings,95
+mcrib,451
+meatball sandwich,481
+nachos with cheese,575
+onion rings,25
+poutine,511
+smoked salmon,44
+spicy italian,480
+subway club sandwich,312
+tortilla wrap,171
+tuna,24
+turkey,29
+veggie burger,389
+veggie delight,229
+veggie patty,963
+wendy’s baconator,839
+wendy’s jr. bacon cheeseburger,420
+wendy’s jr. cheeseburger,290
+wendy’s son of baconator,700
+whopper,672
+zinger,517
+zinger burger,517

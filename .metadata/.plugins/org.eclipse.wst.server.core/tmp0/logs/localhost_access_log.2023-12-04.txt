@@ -1,0 +1,14 @@
+127.0.0.1 - - [04/Dec/2023:10:44:46 +0530] "GET / HTTP/1.1" 404 752
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:44:47 +0530] "GET /project/index.jsp HTTP/1.1" 200 6355
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:44:47 +0530] "GET /project/sleep_icon.png HTTP/1.1" 404 778
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:44:47 +0530] "GET /project/styles.css HTTP/1.1" 200 5786
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:44:47 +0530] "GET /project/SleepAnalyticsServlet HTTP/1.1" 404 785
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:44:47 +0530] "GET /project/MoodChartDataServlet HTTP/1.1" 200 65
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:44:56 +0530] "GET /project/addrecord.jsp HTTP/1.1" 200 1807
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:45:15 +0530] "GET /project/foodentry.jsp HTTP/1.1" 200 613
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:45:23 +0530] "GET /project/sleepentry.jsp HTTP/1.1" 200 807
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:45:27 +0530] "GET /project/illnessentry.jsp HTTP/1.1" 200 631
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:50:17 +0530] "GET /project/index.jsp HTTP/1.1" 200 6355
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:50:17 +0530] "GET /project/sleep_icon.png HTTP/1.1" 404 778
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:50:17 +0530] "GET /project/SleepAnalyticsServlet HTTP/1.1" 404 785
+0:0:0:0:0:0:0:1 - - [04/Dec/2023:10:50:17 +0530] "GET /project/MoodChartDataServlet HTTP/1.1" 200 65

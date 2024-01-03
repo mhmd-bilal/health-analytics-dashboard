@@ -1,0 +1,296 @@
+body, input, textarea, button {font-family: Kanit, sans-serif;}
+
+button{
+	  letter-spacing: 3px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  height: 100vh;
+  letter-spacing: 3px;
+background-image: linear-gradient(
+  45deg,
+  hsl(137deg 100% 41%) 0%,
+  hsl(147deg 100% 40%) 8%,
+  hsl(158deg 100% 38%) 17%,
+  hsl(170deg 100% 36%) 25%,
+  hsl(184deg 100% 36%) 33%,
+  hsl(194deg 100% 42%) 42%,
+  hsl(202deg 100% 47%) 50%,
+  hsl(207deg 100% 50%) 58%,
+  hsl(210deg 100% 50%) 67%,
+  hsl(214deg 100% 50%) 75%,
+  hsl(219deg 100% 50%) 83%,
+  hsl(224deg 100% 45%) 92%,
+  hsl(255deg 93% 40%) 100%
+);
+  background-size: 300% 300%;
+  animation: gradientAnimation 5s infinite linear;
+	color:white;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+100% {
+    background-position: 0% 0%;
+  }
+}
+
+main{
+  text-align: center;
+}
+
+header {
+  text-align: center;
+}
+
+h1{
+	font-weight: 20px;
+}
+.subheading{
+	  text-transform: uppercase;
+
+  font-size: 25px;
+}
+
+.container {
+  width: 70%;
+  display: flex;
+  flex-wrap: nowrap;
+  text-align: center;
+  justify-content: space-between;
+  margin: 0 auto; /* Center-align the container */
+}
+
+
+.bm {  
+  margin: 10px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+  transition: 3s;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  display: inline-block;  
+  width: 100%; /* Adjust the width as needed */
+  padding: 10px;
+  height: 100px;
+  font-size: 25px;
+}
+
+.bm:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.tb {
+  display: inline-block;
+  width: 10%; /* Adjust the width as needed */
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-image: linear-gradient(45deg, rgb(0, 149, 0) 0%, rgb(68, 208, 75)  51%, rgb(0, 149, 0)  100%);
+  transition: 0.5s;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  height: 100%;
+  margin-left: 10px;
+}
+
+.tb:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.buttn {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto; /* Center-align the container */
+  border: #4CAF50 solid 2px;
+  border-radius: 10px;
+}
+
+.moodenter {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+  border:none ;
+      border-radius: 10px;
+    box-sizing: content-box;
+}
+      
+.notification {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  display: none;
+  border-radius: 5px;
+  z-index: 1;
+}  
+.histlist {
+  width: 97.7%; /* Adjust the width as needed */
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  background-color: white;
+  height: 20px;
+  text-align: left;
+}
+
+.analytics-container {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.piechart {
+    width: 25%; /* Adjust the width as needed */
+}
+
+.graphs {
+    width: 50%; /* Adjust the width as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data-card {
+    width: 100%; /* Adjust the width as needed */
+    height: 100%;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    color: #333;
+}
+
+/* Add this style to adjust the size of the pie chart canvas */
+#moodChart {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* Add the following styles for the analytics container */
+.analytics {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+/* Add the following styles for the graphs container */
+.graphs {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Add the following style to the data cards */
+.data-card {
+    width: 80%; /* Adjust the width as needed */
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    color: #333;
+    text-align: center;
+    display: block;
+}
+
+
+.icon-container {
+	width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    float:left;
+}
+
+.count-container{
+	width: 30%;
+	align-items: left;
+	float:left;
+}
+
+.icon {
+    height: 40px; /* Adjust the height of the icon */
+    width: auto;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+.hours {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.small-text {
+    font-size: 14px;
+}
+
+.progress-bar-container {
+    margin-top: 20px;
+    width: 100%;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 4px;
+    background-color: #4caf50; /* Green color for progress */
+}
+/* Add this style to adjust the size of the pie chart canvas */
+#moodChart {
+    width: 100% !important;
+    height: auto !important;
+}
+
+#moodChartTitle {
+    color: white;
+}
+
+#moodChartTitle + .chartjs-hidden-canvas {
+    display: none;
+}
+
+

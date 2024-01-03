@@ -1,0 +1,38 @@
+package project;
+
+
+// EmotionServlet.java
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+@WebServlet("/EmotionServlet")
+public class EmotionServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // Implement your database logic to get the emotion value
+        String emotionValue = getEmotionValueFromDatabase();
+
+        // Send the emotion value as a response
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
+        PrintWriter out = response.getWriter();
+        out.write(emotionValue);
+        out.close();
+    }
+
+    // Implement your database logic here to get the emotion value
+    private String getEmotionValueFromDatabase() {
+        // Replace this with your actual database query
+        // Example: You might use JDBC to connect to a database and execute a query
+        // Return the fetched emotion value as a string
+        return "Happy"; // Placeholder value, replace with actual value from the database
+    }
+}
